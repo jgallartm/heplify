@@ -1,7 +1,7 @@
 package sniffer
 
 import (
-	"github.com/jgallartm/pfring"
+	"github.com/jgallartm/gopacket/pfring"
 	"golang.org/x/net/bpf"
 	"time"
 )
