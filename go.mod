@@ -1,4 +1,4 @@
-module github.com/sipcapture/heplify
+module github.com/jgallartm/heplify
 
 require (
 	github.com/cespare/xxhash v1.1.0 // indirect
