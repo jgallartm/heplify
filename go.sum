@@ -20,6 +20,8 @@ github.com/negbie/logp v0.0.0-20181018124411-1d803349a741 h1:wElbd5Pw1mg/mlE9rAB
 github.com/negbie/logp v0.0.0-20181018124411-1d803349a741/go.mod h1:xTKf9aKLuVL0r9wxWouR+/4ctK2ywm0rTPFY2klrnOg=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
+github.com/sipcapture/heplify v0.0.0-20181207082639-0df024d750a6 h1:YCTurCeZ0IU3Er2sBTYpEgOld1uVDxiBQaVK76IJsIo=
+github.com/sipcapture/heplify v0.0.0-20181207082639-0df024d750a6/go.mod h1:Etve4S/kl4JP6IX7FiN8G/tCU/LB9L8KuxnTFjAESFQ=
 github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72 h1:qLC7fQah7D6K1B0ujays3HV9gkFtllcxhzImRR7ArPQ=
 github.com/spaolacci/murmur3 v0.0.0-20180118202830-f09979ecbc72/go.mod h1:JwIasOWyU6f++ZhiEuf87xNszmSA2myDM2Kzu9HwQUA=
 github.com/stretchr/testify v1.2.2 h1:bSDNvY7ZPG5RlJ8otE/7V6gMiyenm9RtJ7IUVIAoJ1w=
