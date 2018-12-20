@@ -3,12 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
-	"os"
-	"strconv"
-
+	"github.com/jgallartm/heplify/sniffer"
 	"github.com/negbie/logp"
 	"github.com/sipcapture/heplify/config"
-	"github.com/sipcapture/heplify/sniffer"
+	"os"
+	"strconv"
 	//_ "github.com/mkevac/debugcharts"
 )
 
@@ -40,6 +39,7 @@ func init() {
 	flag.IntVar(&ifaceConfig.Loop, "lp", 1, "Loop count over ReadFile. Use 0 to loop forever")
 	flag.BoolVar(&ifaceConfig.ReadSpeed, "rs", false, "Use packet timestamps with maximum pcap read speed")
 	flag.IntVar(&ifaceConfig.Snaplen, "s", 8192, "Snaplength")
+	flag.StringVar(&ifaceConfig.Hosts, "ht", "", "List of hosts")
 	flag.StringVar(&ifaceConfig.PortRange, "pr", "5060-5090", "Portrange to capture SIP")
 	flag.BoolVar(&ifaceConfig.WithVlan, "vlan", false, "vlan")
 	flag.BoolVar(&ifaceConfig.WithErspan, "erspan", false, "erspan")

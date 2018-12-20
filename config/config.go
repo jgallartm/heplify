@@ -37,5 +37,6 @@ type InterfacesConfig struct {
 	BufferSizeMb int    `config:"buffer_size_mb"`
 	ReadSpeed    bool   `config:"top_speed"`
 	OneAtATime   bool   `config:"one_at_a_time"`
+	Hosts        string `config:"hosts"`
 	Loop         int    `config:"loop"`
 }
