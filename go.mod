@@ -7,6 +7,7 @@ require (
 	github.com/gogo/protobuf v1.1.1
 	github.com/google/go-cmp v0.2.0 // indirect
 	github.com/google/gopacket v1.1.15
+	github.com/jgallartm/gopacket v0.0.0-20181220095324-53d648a6bd01 // indirect
 	github.com/mdlayher/raw v0.0.0-20181016155347-fa5ef3332ca9 // indirect
 	github.com/negbie/logp v0.0.0-20181018124411-1d803349a741
 	github.com/pmezard/go-difflib v1.0.0 // indirect

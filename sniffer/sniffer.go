@@ -15,17 +15,23 @@ import (
 
 	"github.com/google/gopacket"
 	"github.com/google/gopacket/layers"
-	"github.com/google/gopacket/pcap"
+	//"github.com/google/gopacket/pcap"
+	//"github.com/google/gopacket/pfring"
+	//"github.com/google/gopacket"
+	//"github.com/jgallartm/gopacket/layers"
+	"github.com/jgallartm/gopacket/pcap"
+	"github.com/jgallartm/gopacket/pfring"
+	"github.com/negbie/logp"
 	"github.com/sipcapture/heplify/config"
 	"github.com/sipcapture/heplify/decoder"
 	"github.com/sipcapture/heplify/dump"
 	"github.com/sipcapture/heplify/publish"
-	"github.com/negbie/logp"
 )
 
 type SnifferSetup struct {
 	pcapHandle     *pcap.Handle
 	afpacketHandle *afpacketHandle
+	pfringHandle   *pfring.Ring
 	config         *config.InterfacesConfig
 	isAlive        bool
 	dumpChan       chan *dump.Packet
@@ -83,9 +89,19 @@ func (sniffer *SnifferSetup) setFromConfig() error {
 		sniffer.config.Type = "pcap"
 	}
 
+	h := sniffer.config.Hosts
+	if h != "" {
+		s := strings.Split(h, ",")
+		sniffer.config.Hosts = "(host " + strings.Join(s, " or host ") + ")"
+	}
+
 	switch sniffer.mode {
 	case "SIP":
-		sniffer.bpf = "tcp and greater 42 and portrange " + sniffer.config.PortRange + " or (udp and greater 128 and portrange " + sniffer.config.PortRange + " or ip[6:2] & 0x1fff != 0 or ip6[6]=44)"
+		if h == "" {
+			sniffer.bpf = "udp and portrange " + sniffer.config.PortRange
+		} else {
+			sniffer.bpf = "(" + h + ")" + " and (udp and portrange " + sniffer.config.PortRange + ")"
+		}
 	case "SIPDNS":
 		sniffer.bpf = "tcp and greater 42 and portrange " + sniffer.config.PortRange + " or (udp and greater 128 and portrange " + sniffer.config.PortRange + " or ip[6:2] & 0x1fff != 0 or ip6[6]=44) or (ip and ip[6] & 0x2 = 0 and ip[6:2] & 0x1fff = 0 and udp and udp[8] & 0xc0 = 0x80 and udp[9] >= 0xc8 && udp[9] <= 0xcc) or (greater 32 and ip and dst port 53)"
 	case "SIPLOG":
@@ -172,7 +188,12 @@ func (sniffer *SnifferSetup) setFromConfig() error {
 		}
 
 		sniffer.DataSource = gopacket.PacketDataSource(sniffer.afpacketHandle)
-
+	case "pfring":
+		sniffer.pfringHandle, err = pfring.NewRing(sniffer.config.Device, 65536, pfring.FlagPromisc)
+		if err != nil {
+			return fmt.Errorf("creating pfring: %v", err)
+		}
+		sniffer.DataSource = gopacket.PacketDataSource(sniffer.pfringHandle)
 	default:
 		return fmt.Errorf("unknown sniffer type: %s", sniffer.config.Type)
 	}
@@ -321,6 +342,8 @@ func (sniffer *SnifferSetup) Close() error {
 		sniffer.pcapHandle.Close()
 	case "af_packet":
 		sniffer.afpacketHandle.Close()
+	case "pfring":
+		sniffer.pfringpacketHandle.Close()
 	}
 	return nil
 }
