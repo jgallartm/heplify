@@ -6,8 +6,8 @@ import (
 	"fmt"
 	"net"
 
+	"github.com/jgallartm/heplify/config"
 	"github.com/negbie/logp"
-	"github.com/sipcapture/heplify/config"
 )
 
 type HEPOutputer struct {

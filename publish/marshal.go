@@ -11,8 +11,8 @@ import (
 	"unsafe"
 
 	proto "github.com/gogo/protobuf/proto"
-	"github.com/sipcapture/heplify/config"
-	"github.com/sipcapture/heplify/decoder"
+	"github.com/jgallartm/heplify/config"
+	"github.com/jgallartm/heplify/decoder"
 	"github.com/negbie/logp"
 )
 

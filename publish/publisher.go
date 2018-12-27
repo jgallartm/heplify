@@ -4,7 +4,7 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/sipcapture/heplify/decoder"
+	"github.com/jgallartm/heplify/decoder"
 	"github.com/negbie/logp"
 )
 
