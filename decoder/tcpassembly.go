@@ -7,10 +7,10 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/google/gopacket"
-	"github.com/google/gopacket/tcpassembly"
-	"github.com/google/gopacket/tcpassembly/tcpreader"
-	"github.com/sipcapture/heplify/config"
+	"github.com/jgallartm/gopacket"
+	"github.com/jgallartm/gopacket/tcpassembly"
+	"github.com/jgallartm/gopacket/tcpassembly/tcpreader"
+	"github.com/jgallartm/heplify/config"
 	"github.com/negbie/logp"
 )
 

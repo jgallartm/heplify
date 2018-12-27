@@ -1,7 +1,7 @@
 package protos
 
 import (
-	"github.com/google/gopacket/layers"
+	"github.com/jgallartm/gopacket/layers"
 )
 
 type TCP struct {

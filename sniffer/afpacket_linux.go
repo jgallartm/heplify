@@ -7,10 +7,10 @@ import (
 
 	"golang.org/x/net/bpf"
 
-	"github.com/google/gopacket"
-	"github.com/google/gopacket/afpacket"
-	"github.com/google/gopacket/layers"
-	"github.com/google/gopacket/pcap"
+	"github.com/jgallartm/gopacket"
+	"github.com/jgallartm/gopacket/afpacket"
+	"github.com/jgallartm/gopacket/layers"
+	"github.com/jgallartm/gopacket/pcap"
 )
 
 type afpacketHandle struct {

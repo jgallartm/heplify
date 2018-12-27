@@ -13,21 +13,21 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/google/gopacket"
-	"github.com/google/gopacket/layers"
+	"github.com/jgallartm/gopacket"
+	"github.com/jgallartm/gopacket/layers"
 	"github.com/jgallartm/gopacket/pcap"
-	"github.com/jgallartm/gopacket/pfring"
+	//"github.com/jgallartm/gopacket/pfring"
 	"github.com/jgallartm/heplify/config"
+	"github.com/jgallartm/heplify/decoder"
+	"github.com/jgallartm/heplify/dump"
+	"github.com/jgallartm/heplify/publish"
 	"github.com/negbie/logp"
-	"github.com/sipcapture/heplify/decoder"
-	"github.com/sipcapture/heplify/dump"
-	"github.com/sipcapture/heplify/publish"
 )
 
 type SnifferSetup struct {
 	pcapHandle     *pcap.Handle
 	afpacketHandle *afpacketHandle
-	pfringHandle   *pfring.Ring
+	pfringHandle   *pfringHandle
 	config         *config.InterfacesConfig
 	isAlive        bool
 	dumpChan       chan *dump.Packet
@@ -185,7 +185,8 @@ func (sniffer *SnifferSetup) setFromConfig() error {
 
 		sniffer.DataSource = gopacket.PacketDataSource(sniffer.afpacketHandle)
 	case "pfring":
-		sniffer.pfringHandle, err = pfring.NewRing(sniffer.config.Device, 65536, pfring.FlagPromisc)
+		//sniffer.pfringHandle, err = newPFRingHandle(sniffer.config.Device, 65536, pfring.FlagPromisc)
+		sniffer.pfringHandle, err = newPFRingHandle(sniffer.config.Device)
 		if err != nil {
 			return fmt.Errorf("creating pfring: %v", err)
 		}
@@ -339,7 +340,7 @@ func (sniffer *SnifferSetup) Close() error {
 	case "af_packet":
 		sniffer.afpacketHandle.Close()
 	case "pfring":
-		sniffer.pfringpacketHandle.Close()
+		sniffer.pfringHandle.Close()
 	}
 	return nil
 }

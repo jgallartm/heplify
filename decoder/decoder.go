@@ -9,15 +9,15 @@ import (
 	"time"
 
 	"github.com/coocood/freecache"
-	"github.com/google/gopacket"
-	"github.com/google/gopacket/layers"
-	"github.com/google/gopacket/tcpassembly"
+	"github.com/jgallartm/gopacket"
+	"github.com/jgallartm/gopacket/layers"
+	"github.com/jgallartm/gopacket/tcpassembly"
+	"github.com/jgallartm/heplify/config"
+	"github.com/jgallartm/heplify/decoder/internal"
+	"github.com/jgallartm/heplify/ip4defrag"
+	"github.com/jgallartm/heplify/ip6defrag"
+	"github.com/jgallartm/heplify/protos"
 	"github.com/negbie/logp"
-	"github.com/sipcapture/heplify/config"
-	"github.com/sipcapture/heplify/decoder/internal"
-	"github.com/sipcapture/heplify/ip4defrag"
-	"github.com/sipcapture/heplify/ip6defrag"
-	"github.com/sipcapture/heplify/protos"
 )
 
 type Decoder struct {

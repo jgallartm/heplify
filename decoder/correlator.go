@@ -6,7 +6,7 @@ import (
 	"net"
 	"strconv"
 
-	"github.com/sipcapture/heplify/protos"
+	"github.com/jgallartm/heplify/protos"
 	"github.com/negbie/logp"
 )
 

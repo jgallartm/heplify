@@ -5,7 +5,7 @@ import (
 
 	"time"
 
-	"github.com/google/gopacket/layers"
+	"github.com/jgallartm/gopacket/layers"
 	"github.com/stretchr/testify/assert"
 )
 

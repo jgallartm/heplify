@@ -5,7 +5,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/google/gopacket"
+	"github.com/jgallartm/gopacket"
 )
 
 // LayerTypeRTP registers the RTP layer type 2010.

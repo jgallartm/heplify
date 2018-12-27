@@ -3,7 +3,7 @@ package protos
 import (
 	"net"
 
-	"github.com/google/gopacket/layers"
+	"github.com/jgallartm/gopacket/layers"
 )
 
 type IPv4 struct {

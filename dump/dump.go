@@ -11,9 +11,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/google/gopacket"
-	"github.com/google/gopacket/layers"
-	"github.com/sipcapture/heplify/config"
+	"github.com/jgallartm/gopacket"
+	"github.com/jgallartm/gopacket/layers"
+	"github.com/jgallartm/heplify/config"
 	"github.com/negbie/logp"
 )
 

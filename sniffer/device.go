@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/google/gopacket/pcap"
+	"github.com/jgallartm/gopacket/pcap"
 
 	"github.com/negbie/logp"
 )

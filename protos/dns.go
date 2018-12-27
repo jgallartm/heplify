@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net"
 
-	"github.com/google/gopacket/layers"
+	"github.com/jgallartm/gopacket/layers"
 	"github.com/negbie/logp"
 )
 

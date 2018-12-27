@@ -1,4 +1,4 @@
-// Copyright 2012 Google, Inc. All rights reserved.
+// Copyright 2012 jgallartm, Inc. All rights reserved.
 //
 // Use of this source code is governed by a BSD-style license
 // that can be found in the LICENSE file in the root of the source
@@ -14,8 +14,8 @@ import (
 	"io"
 	"time"
 
-	"github.com/google/gopacket"
-	"github.com/google/gopacket/layers"
+	"github.com/jgallartm/gopacket"
+	"github.com/jgallartm/gopacket/layers"
 )
 
 // Writer wraps an underlying io.Writer to write packet data in PCAP
